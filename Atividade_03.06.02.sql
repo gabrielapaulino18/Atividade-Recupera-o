@@ -44,3 +44,14 @@ SELECT AVG(salario) FROM funcionarios WHERE Departamento = 'Jurídico';
 SELECT Departamento, AVG(salario) FROM funcionarios GROUP BY Departamento;
 SELECT Departamento, AVG(salario) FROM funcionarios GROUP BY Departamento HAVING AVG (salario) > 2000;
 
+SELECT Departamento, COUNT(*) FROM funcionarios GROUP BY Departamento;
+
+SELECT Departamento, AVG(salario) FROM funcionarios GROUP BY Departamento;
+SELECT nome FROM funcionarios WHERE Departamento = 'TI' OR Departamento = 'Jurídico';
+
+SELECT nome FROM funcionarios WHERE Departamento IN 
+(
+SELECT Departamento FROM funcionarios GROUP BY Departamento HAVING AVG (salario) > 2000
+);
+
+SELECT Departamento, AVG(salario) FROM funcionarios GROUP BY Departamento HAVING AVG (salario) > 2000;
